@@ -9,8 +9,11 @@
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <protobuf-java-version>4.26.0-RC1</protobuf-java-version>
+        <slf4j.version>2.0.12</slf4j.version>
     </properties>
 
     <dependencies>

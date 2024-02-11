@@ -2,13 +2,17 @@ package io.github.clarauso.storage.fnframework;
 
 import com.google.cloud.functions.BackgroundFunction;
 import com.google.cloud.functions.Context;
+import java.util.logging.Logger;
 
+public class FirstGenFunction implements BackgroundFunction<StorageObjectData> {
 
-public class FirstGenFunction implements BackgroundFunction<String> {
+  private static final Logger logger = Logger.getLogger(FirstGenFunction.class.getName());
 
   @Override
-  public void accept(String storageObjectData, Context context) {
+  public void accept(StorageObjectData data, Context context) {
 
-    //System.out.println(storageObjectData.getBucket());
+    final var msg = String.format("Event on bucket=%s name=%s", data.getBucket(), data.getName());
+
+    logger.info(msg);
   }
 }

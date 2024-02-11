@@ -20,6 +20,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-cloud-function.version>4.0.6</spring-cloud-function.version>
+        <google-cloudevent-types>0.14.0</google-cloudevent-types>
         <slf4j.version>2.0.12</slf4j.version>
     </properties>
 
@@ -32,12 +33,11 @@
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloudevent-types</artifactId>
-            <version>0.14.0</version>
+            <version>${google-cloudevent-types}</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
