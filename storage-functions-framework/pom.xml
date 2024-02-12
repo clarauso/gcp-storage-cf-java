@@ -28,39 +28,28 @@
             <artifactId>google-cloudevent-types</artifactId>
             <version>0.14.0</version>
         </dependency>
-        <!--<dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>${protobuf-java-version}</version>
-        </dependency>-->
     </dependencies>
 
     <build>
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>1.4.1.Final</version>
-            </extension>
-        </extensions>
         <plugins>
-            <!--<plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.6.1</version>
-                <extensions>true</extensions>
+            <plugin>
+                <groupId>org.jsonschema2pojo</groupId>
+                <artifactId>jsonschema2pojo-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <configuration>
+                    <sourceDirectory>${basedir}/src/main/resources/schema</sourceDirectory>
+                    <targetPackage>io.github.clarauso.generated</targetPackage>
+                    <annotationStyle>none</annotationStyle>
+                    <useLongIntegers>true</useLongIntegers>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>
-                            <goal>compile</goal>
-                            <goal>test-compile</goal>
+                            <goal>generate</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <protocArtifact>com.google.protobuf:protoc:${protobuf-java-version}:exe:${os.detected.classifier}</protocArtifact>
-                </configuration>
-            </plugin>-->
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
