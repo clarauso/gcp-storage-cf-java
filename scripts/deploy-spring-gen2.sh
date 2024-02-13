@@ -1,25 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 
-while getopts b: flag
-do
-    case "${flag}" in
-        b) bucketName=${OPTARG};;
-        *) exit 22
-    esac
-done
-
-if [ -z "$bucketName" ]
-then
-      echo "Set the bucket name using -b option"
-      exit 22
-fi
+source $(dirname "$0")/utils-arg-check.sh "$@"
 
 cd ../storage-spring-adapter && \
   mvn clean package && \
   gcloud functions deploy test-trigger-spring-gen-2 \
     --gen2 \
     --runtime java17 \
-    --region=europe-west8 \
+    --region=$region \
     --entry-point=org.springframework.cloud.function.adapter.gcp.GcfJarLauncher \
     --set-env-vars=spring_profiles_active=gen2 \
     --source=target/deploy \

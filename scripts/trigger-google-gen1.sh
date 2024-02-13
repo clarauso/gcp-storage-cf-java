@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 curl localhost:8080 \
   -X POST \
