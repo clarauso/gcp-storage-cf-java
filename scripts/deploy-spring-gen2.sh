@@ -7,6 +7,7 @@ cd ../storage-spring-adapter && \
   gcloud functions deploy test-trigger-spring-gen-2 \
     --gen2 \
     --runtime java17 \
+    --memory 256Mi \
     --region=$region \
     --entry-point=org.springframework.cloud.function.adapter.gcp.GcfJarLauncher \
     --set-env-vars=spring_profiles_active=gen2 \
